@@ -76,10 +76,9 @@ class Account:
         if quantity is not given, it will make a market price order.
         """
         if qty is None:
-            payload = {**self.default_payload,
-                       'price': price,
-                       'currency': currency}
-            url = 'order/market_buy'
+            err = 'This API is no longer supported.'
+            logger.error('Failed to market buy: %s' % err)
+            raise Exception(err)
         else:
             payload = {**self.default_payload,
                        'price': price,
@@ -95,10 +94,9 @@ class Account:
         if price is not given, it will make a market price order.
         """
         if price is None:
-            payload = {**self.default_payload,
-                       'qty': qty,
-                       'currency': currency}
-            url = 'order/market_sell'
+            err = 'This API is no longer supported.'
+            logger.error('Failed to market sell: %s' % err)
+            raise Exception(err)
         else:
             payload = {**self.default_payload,
                        'price': price,
