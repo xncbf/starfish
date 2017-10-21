@@ -48,8 +48,9 @@ class Account:
         If all params are empty, it will cancel all orders.
         """
         if all(param is None for param in (order_id, price, qty, is_ask)):
-            payload = {**self.default_payload, 'currency': currency}
-            url = 'order/cancel_all'
+            err = 'This API is no longer supported.'
+            logger.error('Failed to cancel all: %s' % err)
+            raise Exception(err)
         elif 'type' in kwargs and 'orderId' in kwargs:
             payload = {**self.default_payload,
                        'price': price,

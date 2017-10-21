@@ -9,16 +9,16 @@ if __name__ == "__main__":
     pprint(my.info())
     pprint(my.balance())
     pprint(my.daily_balance())
-    # pprint(my.deposit_address())
-    # pprint(my.virtual_account())
+    pprint(my.deposit_address())
+    pprint(my.virtual_account())
 
     #  complete orders
-    # pprint(my.complete_orders())       # query for BTC by default
-    pprint(my.complete_orders('XRP'))  # query for ETH
-    # try:
-    #     pprint(my.complete_orders('bbb'))  # will raise error
-    # except Exception as e:
-    #     print(e.args)
+    pprint(my.complete_orders())       # query for BTC by default
+    pprint(my.complete_orders('XRP'))  # query for XRP
+    try:
+        pprint(my.complete_orders('bbb'))  # will raise error
+    except Exception as e:
+        print(e.args)
 
     # make some insane orders, and cancel them
     # will throw error if you have not enough balance
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     print('made 3 orders')
     orders = my.orders(currency='XRP')
     pprint(orders)
-    my.cancel(**orders[-1])  # cancel the last one
+    my.cancel(currency='XRP', **orders[-1])  # cancel the last one
     print('canceled last one')
     pprint(my.orders(currency='XRP'))
     my.cancel(currency='XRP')              # will cancel all orders by default
