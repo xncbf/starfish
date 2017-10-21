@@ -1,0 +1,7 @@
+httplib2==0.10.3
+numpy==1.13.3
+pandas==0.20.3
+python-dateutil==2.6.1
+pytz==2017.2
+simplejson==3.11.1
+six==1.11.0

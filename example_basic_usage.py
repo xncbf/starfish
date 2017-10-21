@@ -27,11 +27,11 @@ if __name__ == "__main__":
     my.sell(price=1000, qty=3.000, currency='XRP')
 
     print('made 3 orders')
-    orders = my.orders()
+    orders = my.orders(currency='XRP')
     pprint(orders)
     my.cancel(**orders[-1])  # cancel the last one
     print('canceled last one')
-    pprint(my.orders())
-    my.cancel()              # will cancel all orders by default
+    pprint(my.orders(currency='XRP'))
+    my.cancel(currency='XRP')              # will cancel all orders by default
     print('canceled remaining')
-    pprint(my.orders())
+    pprint(my.orders(currency='XRP'))
